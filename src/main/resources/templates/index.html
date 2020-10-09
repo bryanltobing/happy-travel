@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <div class="container my-4">
+        <h2><a href="new_add">Add Penerbangan</a></h2>
+        <br/>
+        <div class="table-responsive">
+            <table border="1" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Penerbangan Id</th>
+                        <th>Penerbangan Asal</th>
+                        <th>Penerbangan Tujuan</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="penerbangan : ${getAllPenerbangan}">
+                        <td th:text="${penerbangan.id}">ID</td>
+                        <td th:text="${penerbangan.asal}">Firstname</td>
+                        <td th:text="${penerbangan.tujuan}">Lastname</td>
+
+                        <td><a th:href="@{'/edit/' + ${penerbangan.id}}">Edit</a></td>
+
+                        <td><a th:href="@{'/delete/' + ${penerbangan.id}}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
